@@ -10,7 +10,6 @@
 
         public BattleField()
         {
-
         }
 
         public void InitField()
@@ -26,28 +25,22 @@
 
         public void DisplayField()
         {
-            //top side numbers
+            // Top side numbers
             Console.Write("   ");
             for (int i = 0; i < fieldSize; i++)
             {
                 Console.Write(" " + i.ToString() + "  ");
             }
-            Console.WriteLine("");
 
             Console.Write("    ");
-            for (int i = 0; i < 4 * fieldSize - 3; i++)
+            for (int i = 0; i < (4 * fieldSize) - 3; i++)
             {
                 Console.Write("-");
             }
-            Console.WriteLine("");
-            //top side numbers
-
-
-            Console.WriteLine("");
 
             for (int i = 0; i < fieldSize; i++)
             {
-                //left side numbers
+                // Left side numbers
                 Console.Write(i.ToString() + "|");
                 for (int j = 0; j < fieldSize; j++)
                 {
@@ -58,7 +51,7 @@
 
         public void InitMines()
         {
-            //tuka ne sym siguren kakvo tochno pravq ama pyk raboti
+            // Tuka ne sym siguren kakvo tochno pravq ama pyk raboti
             int minesDownLimit = Convert.ToInt32(0.15 * fieldSize * fieldSize);
             int minesUpperLimit = Convert.ToInt32(0.30 * fieldSize * fieldSize);
             int tempMineXCoordinate;
@@ -76,8 +69,8 @@
             {
                 do
                 {
-                    //tuka cikyla se vyrti dokato flag ne e false
-                    //s do-while raboti po dobre
+                    // Tuka cikyla se vyrti dokato flag ne e false
+                    // S do-while raboti po dobre
                     tempMineXCoordinate =
                         Convert.ToInt32(rnd.Next(0, fieldSize - 1));
                     tempMineYCoordinate =
@@ -95,419 +88,416 @@
             }
         }
 
-        //tuka sa mogyshtite metodi za gyrmejite
-
-        public void DetonateMine1(int XCoord, int YCoord)
+        // Tuka sa mogyshtite metodi za gyrmejite
+        public void DetonateMine1(int xCoord, int yCoord)
         {
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord - 1, YCoord - 1] = " X ";
+                this.field[xCoord - 1, yCoord - 1] = " X ";
             }
 
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord - 1, YCoord + 1] = " X ";
+                this.field[xCoord - 1, yCoord + 1] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord + 1, YCoord - 1] = " X ";
+                this.field[xCoord + 1, yCoord - 1] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord + 1, YCoord + 1] = " X ";
+                this.field[xCoord + 1, yCoord + 1] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord, YCoord] = " X ";
+                this.field[xCoord, yCoord] = " X ";
             }
         }
 
-        public void DetonateMine2(int XCoord, int YCoord)
+        public void DetonateMine2(int xCoord, int yCoord)
         {
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord - 1, YCoord - 1] = " X ";
+                this.field[xCoord - 1, yCoord - 1] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord, YCoord - 1] = " X ";
+                this.field[xCoord, yCoord - 1] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord + 1, YCoord - 1] = " X ";
+                this.field[xCoord + 1, yCoord - 1] = " X ";
             }
 
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord - 1, YCoord] = " X ";
+                this.field[xCoord - 1, yCoord] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord, YCoord] = " X ";
+                this.field[xCoord, yCoord] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord + 1, YCoord] = " X ";
+                this.field[xCoord + 1, yCoord] = " X ";
             }
 
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord - 1, YCoord + 1] = " X ";
+                this.field[xCoord - 1, yCoord + 1] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord, YCoord + 1] = " X ";
+                this.field[xCoord, yCoord + 1] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord + 1, YCoord + 1] = " X ";
+                this.field[xCoord + 1, yCoord + 1] = " X ";
             }
         }
 
-        public void DetonateMine3(int XCoord, int YCoord)
+        public void DetonateMine3(int xCoord, int yCoord)
         {
-            if ((XCoord - 2 >= 0) && (XCoord - 2 < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord - 2 >= 0) && (xCoord - 2 < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord - 2, YCoord] = " X ";
+                this.field[xCoord - 2, yCoord] = " X ";
             }
 
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord - 1, YCoord] = " X ";
+                this.field[xCoord - 1, yCoord] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord, YCoord] = " X ";
+                this.field[xCoord, yCoord] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord + 1, YCoord] = " X ";
+                this.field[xCoord + 1, yCoord] = " X ";
             }
 
-            if ((XCoord + 2 >= 0) && (XCoord + 2 < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord + 2 >= 0) && (xCoord + 2 < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord + 2, YCoord] = " X ";
+                this.field[xCoord + 2, yCoord] = " X ";
             }
 
-
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord - 1, YCoord - 1] = " X ";
+                this.field[xCoord - 1, yCoord - 1] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord, YCoord] = " X ";
+                this.field[xCoord, yCoord] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord + 1, YCoord + 1] = " X ";
+                this.field[xCoord + 1, yCoord + 1] = " X ";
             }
 
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord - 1, YCoord + 1] = " X ";
+                this.field[xCoord - 1, yCoord + 1] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord, YCoord] = " X ";
+                this.field[xCoord, yCoord] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord + 1, YCoord - 1] = " X ";
+                this.field[xCoord + 1, yCoord - 1] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord - 2 >= 0) && (YCoord - 2 < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord - 2 >= 0) && (yCoord - 2 < fieldSize))
             {
-                this.field[XCoord, YCoord - 2] = " X ";
+                this.field[xCoord, yCoord - 2] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord, YCoord - 1] = " X ";
+                this.field[xCoord, yCoord - 1] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord, YCoord] = " X ";
+                this.field[xCoord, yCoord] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord, YCoord + 1] = " X ";
+                this.field[xCoord, yCoord + 1] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord + 2 >= 0) && (YCoord + 2 < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord + 2 >= 0) && (yCoord + 2 < fieldSize))
             {
-                this.field[XCoord, YCoord + 2] = " X ";
+                this.field[xCoord, yCoord + 2] = " X ";
             }
         }
 
-        public void DetonateMine4(int XCoord, int YCoord)
+        public void DetonateMine4(int xCoord, int yCoord)
         {
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord - 1, YCoord - 1] = " X ";
+                this.field[xCoord - 1, yCoord - 1] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord, YCoord - 1] = " X ";
+                this.field[xCoord, yCoord - 1] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord + 1, YCoord - 1] = " X ";
+                this.field[xCoord + 1, yCoord - 1] = " X ";
             }
 
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord - 1, YCoord] = " X ";
+                this.field[xCoord - 1, yCoord] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord, YCoord] = " X ";
+                this.field[xCoord, yCoord] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord + 1, YCoord] = " X ";
+                this.field[xCoord + 1, yCoord] = " X ";
             }
 
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord - 1, YCoord + 1] = " X ";
+                this.field[xCoord - 1, yCoord + 1] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord, YCoord + 1] = " X ";
+                this.field[xCoord, yCoord + 1] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord + 1, YCoord + 1] = " X ";
+                this.field[xCoord + 1, yCoord + 1] = " X ";
             }
 
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord + 2 >= 0) && (YCoord + 2 < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord + 2 >= 0) && (yCoord + 2 < fieldSize))
             {
-                this.field[XCoord - 1, YCoord + 2] = " X ";
+                this.field[xCoord - 1, yCoord + 2] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord + 2 >= 0) && (YCoord + 2 < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord + 2 >= 0) && (yCoord + 2 < fieldSize))
             {
-                this.field[XCoord, YCoord + 2] = " X ";
+                this.field[xCoord, yCoord + 2] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord + 2 >= 0) && (YCoord + 2 < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord + 2 >= 0) && (yCoord + 2 < fieldSize))
             {
-                this.field[XCoord + 1, YCoord + 2] = " X ";
+                this.field[xCoord + 1, yCoord + 2] = " X ";
             }
 
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord - 2 >= 0) && (YCoord - 2 < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord - 2 >= 0) && (yCoord - 2 < fieldSize))
             {
-                this.field[XCoord - 1, YCoord - 2] = " X ";
+                this.field[xCoord - 1, yCoord - 2] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord - 2 >= 0) && (YCoord - 2 < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord - 2 >= 0) && (yCoord - 2 < fieldSize))
             {
-                this.field[XCoord, YCoord - 2] = " X ";
+                this.field[xCoord, yCoord - 2] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord - 2 >= 0) && (YCoord - 2 < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord - 2 >= 0) && (yCoord - 2 < fieldSize))
             {
-                this.field[XCoord + 1, YCoord - 2] = " X ";
+                this.field[xCoord + 1, yCoord - 2] = " X ";
             }
 
-            if ((XCoord - 2 >= 0) && (XCoord - 2 < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord - 2 >= 0) && (xCoord - 2 < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord - 2, YCoord - 1] = " X ";
+                this.field[xCoord - 2, yCoord - 1] = " X ";
             }
 
-            if ((XCoord - 2 >= 0) && (XCoord - 2 < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord - 2 >= 0) && (xCoord - 2 < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord - 2, YCoord] = " X ";
+                this.field[xCoord - 2, yCoord] = " X ";
             }
 
-            if ((XCoord - 2 >= 0) && (XCoord - 2 < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord - 2 >= 0) && (xCoord - 2 < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord - 2, YCoord + 1] = " X ";
+                this.field[xCoord - 2, yCoord + 1] = " X ";
             }
 
-            if ((XCoord + 2 >= 0) && (XCoord + 2 < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord + 2 >= 0) && (xCoord + 2 < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord + 2, YCoord - 1] = " X ";
+                this.field[xCoord + 2, yCoord - 1] = " X ";
             }
 
-            if ((XCoord + 2 >= 0) && (XCoord + 2 < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord + 2 >= 0) && (xCoord + 2 < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord + 2, YCoord] = " X ";
+                this.field[xCoord + 2, yCoord] = " X ";
             }
 
-            if ((XCoord + 2 >= 0) && (XCoord + 2 < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord + 2 >= 0) && (xCoord + 2 < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord + 2, YCoord + 1] = " X ";
+                this.field[xCoord + 2, yCoord + 1] = " X ";
             }
         }
 
-        public void DetonateMine5(int XCoord, int YCoord)
+        public void DetonateMine5(int xCoord, int yCoord)
         {
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord - 1, YCoord - 1] = " X ";
+                this.field[xCoord - 1, yCoord - 1] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord, YCoord - 1] = " X ";
+                this.field[xCoord, yCoord - 1] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord + 1, YCoord - 1] = " X ";
+                this.field[xCoord + 1, yCoord - 1] = " X ";
             }
 
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord - 1, YCoord] = " X ";
+                this.field[xCoord - 1, yCoord] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord, YCoord] = " X ";
+                this.field[xCoord, yCoord] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord + 1, YCoord] = " X ";
+                this.field[xCoord + 1, yCoord] = " X ";
             }
 
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord - 1, YCoord + 1] = " X ";
+                this.field[xCoord - 1, yCoord + 1] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord, YCoord + 1] = " X ";
+                this.field[xCoord, yCoord + 1] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord + 1, YCoord + 1] = " X ";
+                this.field[xCoord + 1, yCoord + 1] = " X ";
             }
 
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord + 2 >= 0) && (YCoord + 2 < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord + 2 >= 0) && (yCoord + 2 < fieldSize))
             {
-                this.field[XCoord - 1, YCoord + 2] = " X ";
+                this.field[xCoord - 1, yCoord + 2] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord + 2 >= 0) && (YCoord + 2 < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord + 2 >= 0) && (yCoord + 2 < fieldSize))
             {
-                this.field[XCoord, YCoord + 2] = " X ";
+                this.field[xCoord, yCoord + 2] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord + 2 >= 0) && (YCoord + 2 < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord + 2 >= 0) && (yCoord + 2 < fieldSize))
             {
-                this.field[XCoord + 1, YCoord + 2] = " X ";
+                this.field[xCoord + 1, yCoord + 2] = " X ";
             }
 
-            if ((XCoord - 1 >= 0) && (XCoord - 1 < fieldSize) && (YCoord - 2 >= 0) && (YCoord - 2 < fieldSize))
+            if ((xCoord - 1 >= 0) && (xCoord - 1 < fieldSize) && (yCoord - 2 >= 0) && (yCoord - 2 < fieldSize))
             {
-                this.field[XCoord - 1, YCoord - 2] = " X ";
+                this.field[xCoord - 1, yCoord - 2] = " X ";
             }
 
-            if ((XCoord >= 0) && (XCoord < fieldSize) && (YCoord - 2 >= 0) && (YCoord - 2 < fieldSize))
+            if ((xCoord >= 0) && (xCoord < fieldSize) && (yCoord - 2 >= 0) && (yCoord - 2 < fieldSize))
             {
-                this.field[XCoord, YCoord - 2] = " X ";
+                this.field[xCoord, yCoord - 2] = " X ";
             }
 
-            if ((XCoord + 1 >= 0) && (XCoord + 1 < fieldSize) && (YCoord - 2 >= 0) && (YCoord - 2 < fieldSize))
+            if ((xCoord + 1 >= 0) && (xCoord + 1 < fieldSize) && (yCoord - 2 >= 0) && (yCoord - 2 < fieldSize))
             {
-                this.field[XCoord + 1, YCoord - 2] = " X ";
+                this.field[xCoord + 1, yCoord - 2] = " X ";
             }
 
-            if ((XCoord - 2 >= 0) && (XCoord - 2 < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord - 2 >= 0) && (xCoord - 2 < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord - 2, YCoord - 1] = " X ";
+                this.field[xCoord - 2, yCoord - 1] = " X ";
             }
 
-            if ((XCoord - 2 >= 0) && (XCoord - 2 < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord - 2 >= 0) && (xCoord - 2 < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord - 2, YCoord] = " X ";
+                this.field[xCoord - 2, yCoord] = " X ";
             }
 
-            if ((XCoord - 2 >= 0) && (XCoord - 2 < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord - 2 >= 0) && (xCoord - 2 < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord - 2, YCoord + 1] = " X ";
+                this.field[xCoord - 2, yCoord + 1] = " X ";
             }
 
-            if ((XCoord + 2 >= 0) && (XCoord + 2 < fieldSize) && (YCoord - 1 >= 0) && (YCoord - 1 < fieldSize))
+            if ((xCoord + 2 >= 0) && (xCoord + 2 < fieldSize) && (yCoord - 1 >= 0) && (yCoord - 1 < fieldSize))
             {
-                this.field[XCoord + 2, YCoord - 1] = " X ";
+                this.field[xCoord + 2, yCoord - 1] = " X ";
             }
 
-            if ((XCoord + 2 >= 0) && (XCoord + 2 < fieldSize) && (YCoord >= 0) && (YCoord < fieldSize))
+            if ((xCoord + 2 >= 0) && (xCoord + 2 < fieldSize) && (yCoord >= 0) && (yCoord < fieldSize))
             {
-                this.field[XCoord + 2, YCoord] = " X ";
+                this.field[xCoord + 2, yCoord] = " X ";
             }
 
-            if ((XCoord + 2 >= 0) && (XCoord + 2 < fieldSize) && (YCoord + 1 >= 0) && (YCoord + 1 < fieldSize))
+            if ((xCoord + 2 >= 0) && (xCoord + 2 < fieldSize) && (yCoord + 1 >= 0) && (yCoord + 1 < fieldSize))
             {
-                this.field[XCoord + 2, YCoord + 1] = " X ";
+                this.field[xCoord + 2, yCoord + 1] = " X ";
             }
 
-            if ((XCoord - 2 >= 0) && (XCoord - 2 < fieldSize) && (YCoord - 2 >= 0) && (YCoord - 2 < fieldSize))
+            if ((xCoord - 2 >= 0) && (xCoord - 2 < fieldSize) && (yCoord - 2 >= 0) && (yCoord - 2 < fieldSize))
             {
-                this.field[XCoord - 2, YCoord - 2] = " X ";
+                this.field[xCoord - 2, yCoord - 2] = " X ";
             }
 
-            if ((XCoord + 2 >= 0) && (XCoord + 2 < fieldSize) && (YCoord - 2 >= 0) && (YCoord - 2 < fieldSize))
+            if ((xCoord + 2 >= 0) && (xCoord + 2 < fieldSize) && (yCoord - 2 >= 0) && (yCoord - 2 < fieldSize))
             {
-                this.field[XCoord + 2, YCoord - 2] = " X ";
+                this.field[xCoord + 2, yCoord - 2] = " X ";
             }
 
-            if ((XCoord - 2 >= 0) && (XCoord - 2 < fieldSize) && (YCoord + 2 >= 0) && (YCoord + 2 < fieldSize))
+            if ((xCoord - 2 >= 0) && (xCoord - 2 < fieldSize) && (yCoord + 2 >= 0) && (yCoord + 2 < fieldSize))
             {
-                this.field[XCoord - 2, YCoord + 2] = " X ";
+                this.field[xCoord - 2, yCoord + 2] = " X ";
             }
 
-            if ((XCoord + 2 >= 0) && (XCoord + 2 < fieldSize) && (YCoord + 2 >= 0) && (YCoord + 2 < fieldSize))
+            if ((xCoord + 2 >= 0) && (xCoord + 2 < fieldSize) && (yCoord + 2 >= 0) && (yCoord + 2 < fieldSize))
             {
-                this.field[XCoord + 2, YCoord + 2] = " X ";
+                this.field[xCoord + 2, yCoord + 2] = " X ";
             }
         }
 
-
-        //tuka se izbira kva bomba da grymne
-        public void DetonateMine(int XCoord, int YCoord)
+        // Tuka se izbira kva bomba da grymne
+        public void DetonateMine(int xCoord, int yCoord)
         {
-            switch (Convert.ToInt32(this.field[XCoord, YCoord]))
+            switch (Convert.ToInt32(this.field[xCoord, yCoord]))
             {
-                case 1: this.DetonateMine1(XCoord, YCoord);
+                case 1: this.DetonateMine1(xCoord, yCoord);
                     break;
-                case 2: this.DetonateMine2(XCoord, YCoord);
+                case 2: this.DetonateMine2(xCoord, yCoord);
                     break;
-                case 3: this.DetonateMine3(XCoord, YCoord);
+                case 3: this.DetonateMine3(xCoord, yCoord);
                     break;
-                case 4: this.DetonateMine4(XCoord, YCoord);
+                case 4: this.DetonateMine4(xCoord, yCoord);
                     break;
-                case 5: this.DetonateMine5(XCoord, YCoord);
+                case 5: this.DetonateMine5(xCoord, yCoord);
                     break;
             }
         }
@@ -532,15 +522,14 @@
 
         public static void Main(string[] args)
         {
-
             string tempFieldSize;
             Console.WriteLine("Welcome to the Battle Field game");
             do
             {
-                Console.Write("Enter battle field size: ");
+                Console.Write("Enter battle field size (between 1 and 10): ");
                 tempFieldSize = Console.ReadLine();
             } 
-            while ((!Int32.TryParse(tempFieldSize, out fieldSize)) || (fieldSize < 0) || (fieldSize > 11));
+            while ((!int.TryParse(tempFieldSize, out fieldSize)) || (fieldSize < 1) || (fieldSize > 10));
 
             BattleField bf = new BattleField();
             bf.InitField();
@@ -548,7 +537,7 @@
             bf.DisplayField();
 
             string coordinates;
-            int XCoord, YCoord;
+            int xCoord, yCoord;
 
             do
             {
@@ -556,17 +545,21 @@
                 {
                     Console.Write("Enter coordinates: ");
                     coordinates = Console.ReadLine();
-                    XCoord = Convert.ToInt32(coordinates.Substring(0, 1));
-                    YCoord = Convert.ToInt32(coordinates.Substring(2));
+                    xCoord = Convert.ToInt32(coordinates.Substring(0, 1));
+                    yCoord = Convert.ToInt32(coordinates.Substring(2));
 
-                    if ((XCoord < 0) || (YCoord > fieldSize - 1) || (bf.field[XCoord, YCoord] == " - "))
+                    if ((xCoord < 0) || (yCoord > fieldSize - 1) || (bf.field[xCoord, yCoord] == " - "))
+                    {
                         Console.WriteLine("Invalid Move");
-                } while ((XCoord < 0) || (YCoord > fieldSize - 1) || (bf.field[XCoord, YCoord] == " - "));
+                    }
+                }
+                while ((xCoord < 0) || (yCoord > fieldSize - 1) || (bf.field[xCoord, yCoord] == " - "));
 
-                bf.DetonateMine(XCoord, YCoord);
+                bf.DetonateMine(xCoord, yCoord);
                 bf.DisplayField();
                 bf.detonatedMines++;
-            } while (bf.CountRemainingMines() != 0);
+            } 
+            while (bf.CountRemainingMines() != 0);
 
             Console.WriteLine("Game Over. Detonated Mines: " + bf.detonatedMines);
             Console.ReadKey();
