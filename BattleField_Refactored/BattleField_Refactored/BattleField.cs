@@ -1,4 +1,9 @@
-﻿namespace BattleField
+﻿//-----------------------------------------------------------------------
+// <copyright file="BattleField.cs" company="Team Antida 2014">
+//        It's OpenSource.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace BattleField
 {
     using System;
 

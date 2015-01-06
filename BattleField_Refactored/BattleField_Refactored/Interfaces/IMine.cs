@@ -1,14 +1,16 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="IPlayer.cs" company="Team Antida 2014">
+// <copyright file="IMine.cs" company="Team Antida 2014">
 //        It's OpenSource.
 // </copyright>
 //-----------------------------------------------------------------------
+using BattleField_Refactored.Common;
+
 namespace BattleField_Refactored.Interfaces
 {
-    interface IPlayer
+    public interface IMine : IExplosible
     {
-        string Username { get; set; }
+        bool[,] Body { get; set; }
 
-        int FieldSize { get; set; }
+        MineType Type { get; set; }
     }
 }

@@ -1,14 +1,12 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="IPlayer.cs" company="Team Antida 2014">
+// <copyright file="IExplosible.cs" company="Team Antida 2014">
 //        It's OpenSource.
 // </copyright>
 //-----------------------------------------------------------------------
 namespace BattleField_Refactored.Interfaces
 {
-    interface IPlayer
+    public interface IExplosible
     {
-        string Username { get; set; }
-
-        int FieldSize { get; set; }
+        bool[,] GetHitArea();
     }
 }

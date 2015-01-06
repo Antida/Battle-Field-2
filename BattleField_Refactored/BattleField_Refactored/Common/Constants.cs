@@ -1,14 +1,12 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="IPlayer.cs" company="Team Antida 2014">
+// <copyright file="Constants.cs" company="Team Antida 2014">
 //        It's OpenSource.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace BattleField_Refactored.Interfaces
+namespace BattleField_Refactored.Common
 {
-    interface IPlayer
+    public class Constants
     {
-        string Username { get; set; }
-
-        int FieldSize { get; set; }
+        public const int MineGridSize = 5;
     }
 }
