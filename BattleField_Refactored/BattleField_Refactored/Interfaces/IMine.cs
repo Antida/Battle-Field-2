@@ -3,8 +3,8 @@ namespace BattleField_Refactored.Interfaces
 {
     public interface IMine : IExplosible
     {
-        bool[,] Body;
+        bool[,] Body { get; set; }
 
-        MineType Type;
+        MineType Type { get; set; }
     }
 }

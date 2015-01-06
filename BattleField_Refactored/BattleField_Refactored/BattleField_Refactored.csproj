@@ -42,16 +42,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BattleField.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\MineType.cs" />
     <Compile Include="Engine\Engine.cs" />
+    <Compile Include="Interfaces\IMine.cs" />
+    <Compile Include="Interfaces\IExplosible.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Interfaces\IPosition.cs" />
     <Compile Include="Interfaces\IRenderable.cs" />
-    <Compile Include="Objects\HugeMine.cs" />
-    <Compile Include="Objects\BigMine.cs" />
-    <Compile Include="Objects\AverageMine.cs" />
-    <Compile Include="Objects\Mine.cs" />
-    <Compile Include="Objects\DoubleMine.cs" />
-    <Compile Include="Objects\MiniMine.cs" />
+    <Compile Include="Objects\GameField.cs" />
+    <Compile Include="Objects\Mines\HugeMine.cs" />
+    <Compile Include="Objects\Mines\BigMine.cs" />
+    <Compile Include="Objects\Mines\AverageMine.cs" />
+    <Compile Include="Objects\Mines\Mine.cs" />
+    <Compile Include="Objects\Mines\DoubleMine.cs" />
+    <Compile Include="Objects\Mines\MiniMine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interfaces\IRenderer.cs" />
     <Compile Include="Interfaces\IUserInputHandler.cs" />
