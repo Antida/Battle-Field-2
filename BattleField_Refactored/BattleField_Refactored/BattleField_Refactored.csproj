@@ -43,18 +43,19 @@
   <ItemGroup>
     <Compile Include="BattleField.cs" />
     <Compile Include="Engine\Engine.cs" />
+    <Compile Include="Interfaces\IPlayer.cs" />
+    <Compile Include="Interfaces\IPosition.cs" />
     <Compile Include="Interfaces\IRenderable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interfaces\IRenderer.cs" />
     <Compile Include="Interfaces\IUserInputHandler.cs" />
+    <Compile Include="Renderers\ConsoleRenderer.cs" />
+    <Compile Include="UserInputHandlers\ConsoleUserInputHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Renderers\" />
-    <Folder Include="UserInputHandlers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
