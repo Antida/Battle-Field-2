@@ -2,6 +2,6 @@
 {
     public interface IRenderable
     {
-        string RenderBody { get; set; }
+        string RenderBody();
     }
 }
