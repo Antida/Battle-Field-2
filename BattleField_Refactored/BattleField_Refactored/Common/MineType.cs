@@ -1,4 +1,9 @@
-﻿namespace BattleField_Refactored.Common
+﻿//-----------------------------------------------------------------------
+// <copyright file="MineType.cs" company="Team Antida 2014">
+//        It's OpenSource.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace BattleField_Refactored.Common
 {
     public enum MineType
     {

@@ -1,4 +1,10 @@
-﻿using BattleField_Refactored.Interfaces;
+﻿//-----------------------------------------------------------------------
+// <copyright file="ConsoleUserInputHandler.cs" company="Team Antida 2014">
+//        It's OpenSource.
+// </copyright>
+//-----------------------------------------------------------------------
+using BattleField_Refactored.Interfaces;
+
 namespace BattleField_Refactored.UserInputHandlers
 {
     public class ConsoleUserInputHandler : IUserInputHandler

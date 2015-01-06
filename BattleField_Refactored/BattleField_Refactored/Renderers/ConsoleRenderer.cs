@@ -1,4 +1,10 @@
-﻿using BattleField_Refactored.Interfaces;
+﻿//-----------------------------------------------------------------------
+// <copyright file="ConsoleRenderer.cs" company="Team Antida 2014">
+//        It's OpenSource.
+// </copyright>
+//-----------------------------------------------------------------------
+using BattleField_Refactored.Interfaces;
+
 namespace BattleField_Refactored.Renderers
 {
     public class ConsoleRenderer : IRenderer

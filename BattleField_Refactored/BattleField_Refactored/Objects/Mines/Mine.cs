@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 ﻿namespace BattleField_Refactored.Objects
+=======
+﻿//-----------------------------------------------------------------------
+// <copyright file="Mine.cs" company="Team Antida 2014">
+//        It's OpenSource.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace BattleField_Refactored.Objects
+>>>>>>> a0bb761a918eb40d0099ea554927dd9b0feef89b
 {
     using System;
     using BattleField_Refactored.Common;

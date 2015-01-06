@@ -1,15 +1,26 @@
-﻿namespace BattleField_Refactored.Objects
+﻿//-----------------------------------------------------------------------
+// <copyright file="GameField.cs" company="Team Antida 2014">
+//        It's OpenSource.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace BattleField_Refactored.Objects
 {
     using System;
+<<<<<<< HEAD
     using System.Text;
+=======
+>>>>>>> a0bb761a918eb40d0099ea554927dd9b0feef89b
     using BattleField_Refactored.Interfaces;
 
     public class GameField : IGameField, IRenderable
     {
+<<<<<<< HEAD
         private const int RowPadding = 4;
         private const int ColumnPadding = 2;
         private const int CellPadding = 3;
 
+=======
+>>>>>>> a0bb761a918eb40d0099ea554927dd9b0feef89b
         public GameField(int size)
         {
             this.FieldSize = size;
@@ -34,6 +45,7 @@
             }
         }
 
+<<<<<<< HEAD
         public string RenderBody()
         {
             var fieldBody = new StringBuilder();
@@ -55,6 +67,8 @@
             return fieldBody.ToString();
         }
 
+=======
+>>>>>>> a0bb761a918eb40d0099ea554927dd9b0feef89b
         private void ValidateIndex(int row, int col)
         {
             if (row < 0 || row > this.FieldSize)
@@ -67,6 +81,7 @@
                 throw new IndexOutOfRangeException("The column must be between 0 and " + this.FieldSize + ".");
             }
         }
+<<<<<<< HEAD
 
         private string RenderRow(int rowNumber)
         {
@@ -79,5 +94,7 @@
 
             return row.ToString();
         }
+=======
+>>>>>>> a0bb761a918eb40d0099ea554927dd9b0feef89b
     }
 }

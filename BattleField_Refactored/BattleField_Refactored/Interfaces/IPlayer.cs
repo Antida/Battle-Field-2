@@ -1,4 +1,9 @@
-﻿namespace BattleField_Refactored.Interfaces
+﻿//-----------------------------------------------------------------------
+// <copyright file="IPlayer.cs" company="Team Antida 2014">
+//        It's OpenSource.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace BattleField_Refactored.Interfaces
 {
     interface IPlayer
     {
