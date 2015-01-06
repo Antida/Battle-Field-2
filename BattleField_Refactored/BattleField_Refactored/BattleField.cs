@@ -31,12 +31,15 @@
             {
                 Console.Write(" " + i.ToString() + "  ");
             }
+            Console.WriteLine();
 
             Console.Write("    ");
             for (int i = 0; i < (4 * fieldSize) - 3; i++)
             {
                 Console.Write("-");
             }
+
+            Console.WriteLine();
 
             for (int i = 0; i < fieldSize; i++)
             {
@@ -46,6 +49,7 @@
                 {
                     Console.Write(" " + this.field[i, j].ToString());
                 }
+                Console.WriteLine();
             }
         }
 
