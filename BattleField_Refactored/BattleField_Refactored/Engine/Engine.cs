@@ -6,7 +6,7 @@
 namespace BattleField_Refactored.Engine
 {
     /// <summary>
-    /// <para></para>
+    /// Game Engine
     /// </summary>
     public class Engine
     {
@@ -16,6 +16,9 @@ namespace BattleField_Refactored.Engine
         {
         }
 
+        /// <summary>
+        /// Gets the only instance of the singleton Engine class.
+        /// </summary>
         public static Engine Instance 
         {
             get 
