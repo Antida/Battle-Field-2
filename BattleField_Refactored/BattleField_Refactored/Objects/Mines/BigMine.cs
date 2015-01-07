@@ -7,6 +7,9 @@ namespace BattleField_Refactored.Objects
 {
     using BattleField_Refactored.Common;
 
+    /// <summary>
+    /// Mine with a range of 4
+    /// </summary>
     public class BigMine : Mine
     {
         public BigMine()

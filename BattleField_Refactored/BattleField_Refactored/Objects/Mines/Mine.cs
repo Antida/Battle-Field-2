@@ -3,15 +3,18 @@
 //        It's OpenSource.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace BattleField_Refactored.Objects
+namespace BattleField_Refactored.Objects.Mines
 {
     using System;
     using BattleField_Refactored.Common;
     using BattleField_Refactored.Interfaces;
 
+    /// <summary>
+    /// Mine
+    /// </summary>
     public abstract class Mine : IMine
     {
-        public Mine()
+        protected Mine()
         {
             this.Create();
         }

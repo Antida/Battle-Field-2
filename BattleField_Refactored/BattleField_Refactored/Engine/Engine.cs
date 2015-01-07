@@ -12,6 +12,9 @@ namespace BattleField_Refactored.Engine
     {
         private static Engine instance;
 
+        /// <summary>
+        /// Prevents a default instance of the <see cref="Engine" /> class from being created.
+        /// </summary>
         private Engine() 
         {
         }
