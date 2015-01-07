@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleField_Refactored", "BattleField_Refactored\BattleField_Refactored.csproj", "{56122D41-A93C-4B7B-A1F9-CAA695213F6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleField.Tests", "BattleField.Tests\BattleField.Tests.csproj", "{30300EB5-ADB0-49C8-B075-F8E6874C990D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{56122D41-A93C-4B7B-A1F9-CAA695213F6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56122D41-A93C-4B7B-A1F9-CAA695213F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56122D41-A93C-4B7B-A1F9-CAA695213F6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30300EB5-ADB0-49C8-B075-F8E6874C990D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30300EB5-ADB0-49C8-B075-F8E6874C990D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30300EB5-ADB0-49C8-B075-F8E6874C990D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30300EB5-ADB0-49C8-B075-F8E6874C990D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
