@@ -5,10 +5,12 @@
 //-----------------------------------------------------------------------
 namespace BattleField_Refactored.Engine
 {
+    using BattleField_Refactored.Interfaces;
+
     /// <summary>
     /// Game Engine
     /// </summary>
-    public class Engine
+    public class Engine : IGameEngine
     {
         private static Engine instance;
 
@@ -31,5 +33,9 @@ namespace BattleField_Refactored.Engine
                 return instance;
             }
         }
+
+      public void Run()
+      {
+      }
     }
 }
