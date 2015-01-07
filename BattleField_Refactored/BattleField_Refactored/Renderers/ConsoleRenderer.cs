@@ -5,23 +5,24 @@
 //-----------------------------------------------------------------------
 namespace BattleField_Refactored.Renderers
 {
+    using System;
     using BattleField_Refactored.Interfaces;
 
     public class ConsoleRenderer : IRenderer
     {
         public void Render(IRenderable obj)
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine(obj.RenderBody());
         }
 
         public void RenderText(string text)
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine(text);
         }
 
         public void Clear()
         {
-            throw new System.NotImplementedException();
+          Console.Clear();
         }
     }
 }

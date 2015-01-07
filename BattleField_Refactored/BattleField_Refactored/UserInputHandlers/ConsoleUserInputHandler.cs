@@ -3,25 +3,37 @@
 //        It's OpenSource.
 // </copyright>
 //-----------------------------------------------------------------------
-using BattleField_Refactored.Interfaces;
-
 namespace BattleField_Refactored.UserInputHandlers
 {
+    using System;
+    using BattleField_Refactored.Interfaces;
+    using BattleField_Refactored.Common;
+
     public class ConsoleUserInputHandler : IUserInputHandler
     {
         public int ReadInteger()
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                return int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                return -1;
+            }
         }
 
         public string ReadText()
         {
-            throw new System.NotImplementedException();
+            return Console.ReadLine();
         }
 
         public IPosition ReadPosition()
         {
-            throw new System.NotImplementedException();
+            string[] elements = Console.ReadLine().Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+            int x = int.Parse(elements[0]);
+            int y = int.Parse(elements[1]);
+            return new Position(x, y);
         }
     }
 }

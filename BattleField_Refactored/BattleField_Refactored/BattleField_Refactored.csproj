@@ -60,7 +60,9 @@
     <Compile Include="BattleField.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\MineType.cs" />
+    <Compile Include="Common\Position.cs" />
     <Compile Include="Engine\Engine.cs" />
+    <Compile Include="Engine\MineController.cs" />
     <Compile Include="Engine\MineFactory.cs" />
     <Compile Include="Interfaces\IGameEngine.cs" />
     <Compile Include="Interfaces\IGameField.cs" />
