@@ -3,10 +3,13 @@
 //        It's OpenSource.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace BattleField_Refactored.Objects
+namespace BattleField_Refactored.Objects.Mines
 {
     using BattleField_Refactored.Common;
 
+    /// <summary>
+    /// Mine with a range of 4
+    /// </summary>
     public class BigMine : Mine
     {
         public BigMine()
