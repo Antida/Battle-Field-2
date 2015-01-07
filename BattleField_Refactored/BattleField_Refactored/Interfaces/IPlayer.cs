@@ -5,7 +5,7 @@
 //-----------------------------------------------------------------------
 namespace BattleField_Refactored.Interfaces
 {
-    interface IPlayer
+    public interface IPlayer
     {
         string Username { get; set; }
 

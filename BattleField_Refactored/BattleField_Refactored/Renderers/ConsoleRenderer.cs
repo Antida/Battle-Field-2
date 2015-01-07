@@ -3,10 +3,10 @@
 //        It's OpenSource.
 // </copyright>
 //-----------------------------------------------------------------------
-using BattleField_Refactored.Interfaces;
-
 namespace BattleField_Refactored.Renderers
 {
+    using BattleField_Refactored.Interfaces;
+
     public class ConsoleRenderer : IRenderer
     {
         public void Render(IRenderable obj)

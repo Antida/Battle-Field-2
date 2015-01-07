@@ -6,21 +6,15 @@
 namespace BattleField_Refactored.Objects
 {
     using System;
-<<<<<<< HEAD
     using System.Text;
-=======
->>>>>>> a0bb761a918eb40d0099ea554927dd9b0feef89b
     using BattleField_Refactored.Interfaces;
 
     public class GameField : IGameField, IRenderable
     {
-<<<<<<< HEAD
         private const int RowPadding = 4;
         private const int ColumnPadding = 2;
         private const int CellPadding = 3;
-
-=======
->>>>>>> a0bb761a918eb40d0099ea554927dd9b0feef89b
+       
         public GameField(int size)
         {
             this.FieldSize = size;
@@ -45,7 +39,6 @@ namespace BattleField_Refactored.Objects
             }
         }
 
-<<<<<<< HEAD
         public string RenderBody()
         {
             var fieldBody = new StringBuilder();
@@ -66,9 +59,6 @@ namespace BattleField_Refactored.Objects
 
             return fieldBody.ToString();
         }
-
-=======
->>>>>>> a0bb761a918eb40d0099ea554927dd9b0feef89b
         private void ValidateIndex(int row, int col)
         {
             if (row < 0 || row > this.FieldSize)
@@ -81,7 +71,6 @@ namespace BattleField_Refactored.Objects
                 throw new IndexOutOfRangeException("The column must be between 0 and " + this.FieldSize + ".");
             }
         }
-<<<<<<< HEAD
 
         private string RenderRow(int rowNumber)
         {
@@ -94,7 +83,5 @@ namespace BattleField_Refactored.Objects
 
             return row.ToString();
         }
-=======
->>>>>>> a0bb761a918eb40d0099ea554927dd9b0feef89b
     }
 }
