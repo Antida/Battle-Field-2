@@ -1,10 +1,15 @@
-﻿namespace BattleField_Refactored.Engine
+﻿using BattleField_Refactored.Objects.Mines;
+
+namespace BattleField_Refactored.Engine
 {
     using System;
     using BattleField_Refactored.Common;
     using BattleField_Refactored.Interfaces;
     using BattleField_Refactored.Objects;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class MineFactory : IMineFactory
     {
         public IMine CreateMine(MineType type)

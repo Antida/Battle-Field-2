@@ -10,7 +10,7 @@ namespace BattleField_Refactored.Objects.Mines
     using BattleField_Refactored.Interfaces;
 
     /// <summary>
-    /// Mine
+    /// Base class for creating mines. All mine types inherit from this class.
     /// </summary>
     public abstract class Mine : IMine
     {
