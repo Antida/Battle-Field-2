@@ -11,6 +11,7 @@ namespace BattleField_Refactored.Engine
     using BattleField_Refactored.UserInputHandlers;
     using BattleField_Refactored.Common;
     using BattleField_Refactored.Objects;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// Game Engine
@@ -35,7 +36,6 @@ namespace BattleField_Refactored.Engine
         {
             this.input = new ConsoleUserInputHandler();
             this.output = new ConsoleRenderer();
-            this.mineController = new MineController(this.gameField);
         }
 
         /// <summary>
@@ -54,6 +54,7 @@ namespace BattleField_Refactored.Engine
             }
         }
 
+        [ExcludeFromCodeCoverage]
         public void Run()
         {
             this.output.RenderText("Welcome to \"Battle Field\" game.\nEnter battle field size: n = ");
@@ -61,16 +62,17 @@ namespace BattleField_Refactored.Engine
 
             while (size == -1 || size < Constants.MinFieldSize || size > Constants.MaxFieldSize)
             {
-                this.output.RenderText("The field size is invalid. It must be a number between 1 and 10.");
+                this.output.RenderText("The field size is invalid. It must be a number between 1 and 10. ");
                 size = this.input.ReadInteger();
             }
 
             this.gameField = new GameField(size);
+            this.mineController = new MineController(this.gameField);
             int mines = this.PlaceMines(size);
             while (mines > 0)
             {
                 this.output.Clear();
-                // ShowLastHit();
+                ShowLastHit();
                 this.output.Render(gameField);
                 do
                 {
@@ -95,6 +97,8 @@ namespace BattleField_Refactored.Engine
             }
         }
 
+        [ExcludeFromCodeCoverage]
+
         private int PlaceMines(int fieldSize)
         {
             int mines = generator.Next(15 * fieldSize * fieldSize / 100, 30 * fieldSize * fieldSize / 100 + 1);
@@ -114,12 +118,33 @@ namespace BattleField_Refactored.Engine
             return mines;
         }
 
-      private bool IsMineHit()
-      {
+        [ExcludeFromCodeCoverage]
+        private bool IsMineHit()
+        {
+            char fieldHit = gameField[this.lastPosition.X, this.lastPosition.Y];
+            if (fieldHit == 0 || fieldHit == '*')
+            {
+                return false;
+            }
 
-      }
+            return true;
+        }
 
-      private bool IsValidPosition()
+        [ExcludeFromCodeCoverage]
+        private void ShowLastHit()
+        {
+            if (this.lastPosition != null)
+            {
+                this.output.RenderText(
+                    string.Format("Last hit was at: ({0}; {1}){2}",
+                        this.lastPosition.X,
+                        this.lastPosition.Y,
+                        Environment.NewLine));
+            }
+        }
+
+        [ExcludeFromCodeCoverage]
+        private bool IsValidPosition()
         {
             if ((0 <= this.lastPosition.X && this.lastPosition.X < this.gameField.FieldSize) &&
                 (0 <= this.lastPosition.Y && this.lastPosition.Y < this.gameField.FieldSize))

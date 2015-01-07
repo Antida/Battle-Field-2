@@ -8,13 +8,14 @@ namespace BattleField_Refactored.Objects
     using System;
     using System.Text;
     using BattleField_Refactored.Interfaces;
+    using System.Diagnostics.CodeAnalysis;
 
     public class GameField : IGameField, IRenderable
     {
-        private const int RowPadding = 4;
+        private const int RowPadding = 5;
         private const int ColumnPadding = 2;
         private const int CellPadding = 3;
-       
+
         public GameField(int size)
         {
             this.FieldSize = size;
@@ -24,6 +25,7 @@ namespace BattleField_Refactored.Objects
         public int FieldSize { get; set; }
 
         public char[,] Body { get; set; }
+
 
         public char this[int row, int col]
         {
@@ -39,6 +41,7 @@ namespace BattleField_Refactored.Objects
             }
         }
 
+        [ExcludeFromCodeCoverage]
         public string RenderBody()
         {
             var fieldBody = new StringBuilder();
@@ -50,7 +53,7 @@ namespace BattleField_Refactored.Objects
 
             fieldBody.AppendLine();
             fieldBody.Append(new string(' ', RowPadding))
-                .AppendLine(new string('-', this.FieldSize * CellPadding));
+                .AppendLine(new string('-', this.FieldSize * CellPadding + RowPadding));
 
             for (int i = 0; i < this.FieldSize; i++)
             {
@@ -59,6 +62,8 @@ namespace BattleField_Refactored.Objects
 
             return fieldBody.ToString();
         }
+
+        [ExcludeFromCodeCoverage]
         private void ValidateIndex(int row, int col)
         {
             if (row < 0 || row > this.FieldSize)
@@ -72,16 +77,24 @@ namespace BattleField_Refactored.Objects
             }
         }
 
+        [ExcludeFromCodeCoverage]
         private string RenderRow(int rowNumber)
         {
             var row = new StringBuilder();
             for (int col = 0; col < this.FieldSize; col++)
             {
-                row.AppendFormat("{0}{1}", this[rowNumber, col], new string(' ', ColumnPadding))
-                    .Append("|");
+                row.AppendFormat("{0}{1}", GetCellRepresentation(rowNumber, col), new string(' ', CellPadding));
             }
 
+            row.AppendLine("|");
+
             return row.ToString();
+        }
+
+        [ExcludeFromCodeCoverage]
+        private char GetCellRepresentation(int row, int col)
+        {
+            return this[row, col] == 0 ? '-' : this[row, col];
         }
     }
 }

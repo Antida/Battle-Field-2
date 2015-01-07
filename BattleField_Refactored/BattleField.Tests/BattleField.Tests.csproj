@@ -50,8 +50,19 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GameFieldTests.cs" />
+    <Compile Include="MinesTests.cs" />
+    <Compile Include="PositionTests.cs" />
+    <Compile Include="EngineTests.cs" />
+    <Compile Include="MineControllerTests.cs" />
+    <Compile Include="MineFactoryTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BattleField_Refactored\BattleField_Refactored.csproj">
+      <Project>{56122d41-a93c-4b7b-a1f9-caa695213f6f}</Project>
+      <Name>BattleField_Refactored</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

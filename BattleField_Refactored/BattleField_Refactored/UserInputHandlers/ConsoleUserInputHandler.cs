@@ -8,7 +8,9 @@ namespace BattleField_Refactored.UserInputHandlers
     using System;
     using BattleField_Refactored.Interfaces;
     using BattleField_Refactored.Common;
+    using System.Diagnostics.CodeAnalysis;
 
+    [ExcludeFromCodeCoverage]
     public class ConsoleUserInputHandler : IUserInputHandler
     {
         public int ReadInteger()
@@ -31,9 +33,17 @@ namespace BattleField_Refactored.UserInputHandlers
         public IPosition ReadPosition()
         {
             string[] elements = Console.ReadLine().Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
-            int x = int.Parse(elements[0]);
-            int y = int.Parse(elements[1]);
-            return new Position(x, y);
+            try
+            {
+                int x = int.Parse(elements[0]);
+                int y = int.Parse(elements[1]);
+                return new Position(x, y);
+            }
+            catch (Exception)
+            {
+                return new Position(-1, -1);
+            }
+
         }
     }
 }
